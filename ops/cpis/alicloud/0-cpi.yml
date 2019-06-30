@@ -1,0 +1,22 @@
+---
+- name: cpi
+  path: /releases/-
+  type: replace
+  value:
+    name: bosh-alicloud-cpi
+    version: 22.0.1
+    url: https://github.com/drnic/bosh-alicloud-cpi-release/releases/download/22.0.1/bosh-alicloud-cpi-release-22.0.1.tgz
+    sha1: 161e325f8b118ac78145d0ef72c5b4ea86135674
+
+- name: stemcell
+  path: /resource_pools/name=vms/stemcell?
+  type: replace
+  value:
+    url: http://bosh.oss-cn-hangzhou.aliyuncs.com/light-bosh-stemcell-1018-alicloud-kvm-ubuntu-xenial-go_agent.tgz
+    sha1: 7e004713a5eda2f3522631935ade0a08ec055936
+
+- path: /cloud_provider/template?
+  type: replace
+  value:
+    name: alicloud_cpi
+    release: bosh-alicloud-cpi
